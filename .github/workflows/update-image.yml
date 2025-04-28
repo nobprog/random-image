@@ -26,13 +26,9 @@ jobs:
 
       - name: Commit and push to gh-pages branch
         run: |
-          # Gitの設定
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          
-          # 変更されたファイルをステージングしてコミット
           git add public/random.png
           git commit -m "Update random image: ${{ env.file }}" || echo "No changes to commit"
-          
-          # リモートのgh-pagesブランチにプッシュ
-          git push origin gh-pages
+          git push https://github-actions:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }} gh-pages
+
