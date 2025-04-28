@@ -2,7 +2,7 @@ name: Update Random Image Every Hour
 
 on:
   schedule:
-    - cron: '0 * * * *'  # 毎時0分に実行（UTC時間）
+    - cron: '*/5 * * * *'  # 毎時0分に実行（UTC時間）
   workflow_dispatch:  # 手動トリガーもできるようにする
 
 jobs:
