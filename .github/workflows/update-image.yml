@@ -2,7 +2,7 @@ name: Update Random Image Every 5 minutes
 
 on:
   schedule:
-    - cron: '*/6 * * * *' 
+    - cron: '0 */1 * * *' 
   workflow_dispatch:  
 
 jobs:
