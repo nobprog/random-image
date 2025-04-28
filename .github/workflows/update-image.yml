@@ -27,4 +27,4 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add public/random.png
           git commit -m "Update random image: ${{ steps.pick.outputs.file }}" || echo "No changes to commit"
-          git push origin gh-pages  # gh-pagesブランチにプッシュ
+          git push origin gh-pages  
