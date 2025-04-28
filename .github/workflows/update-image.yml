@@ -2,7 +2,7 @@ name: Update Random Image Every 5 minutes
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # 5分ごとに実行
+    - cron: '*/6 * * * *'  # 5分ごとに実行
   workflow_dispatch:  # 手動トリガーもできるようにする
 
 jobs:
