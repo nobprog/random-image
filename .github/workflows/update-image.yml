@@ -2,8 +2,8 @@ name: Update Random Image Every 5 minutes
 
 on:
   schedule:
-    - cron: '*/6 * * * *'  # 5分ごとに実行
-  workflow_dispatch:  # 手動トリガーもできるようにする
+    - cron: '*/6 * * * *' 
+  workflow_dispatch:  
 
 jobs:
   update-image:
@@ -15,13 +15,13 @@ jobs:
       - name: Pick a random image
         id: pick
         run: |
-          # 画像をランダムに選択
+          
           files=($(ls private-images/*.png))
           RANDOM_FILE=${files[$RANDOM % ${#files[@]}]}
           echo "Selected file: $RANDOM_FILE"
           cp "$RANDOM_FILE" public/random.png
           
-          # 環境ファイルに出力を保存
+         
           echo "file=$RANDOM_FILE" >> $GITHUB_ENV
 
       - name: Commit and push to gh-pages branch
