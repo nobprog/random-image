@@ -2,7 +2,7 @@ name: Update Random Image Every Hour
 
 on:
   schedule:
-    - cron: '0 * * * *'  # 毎時0分に実行（UTC時間なので日本時間だと9時間ズレる）
+    - cron: '0 * * * *'  # 毎時0分に実行（UTC時間）
   workflow_dispatch:  # 手動トリガーもできるようにする
 
 jobs:
@@ -21,10 +21,10 @@ jobs:
           cp "$RANDOM_FILE" public/random.png
           echo "::set-output name=file::$RANDOM_FILE"
 
-      - name: Commit and push
+      - name: Commit and push to gh-pages branch
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add public/random.png
           git commit -m "Update random image: ${{ steps.pick.outputs.file }}" || echo "No changes to commit"
-          git push
+          git push origin gh-pages  # gh-pagesブランチにプッシュ
