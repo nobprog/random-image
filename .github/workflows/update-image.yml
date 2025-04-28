@@ -1,4 +1,4 @@
-name: Update Random Image Every Hour
+name: Update Random Image Every 5 minutes
 
 on:
   schedule:
